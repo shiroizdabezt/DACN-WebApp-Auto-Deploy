@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import './Navbar.css'
 import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
@@ -11,12 +11,14 @@ const Navbar = () => {
   const [menu,setMenu] = useState("shop"); 
   const {getTotalCartItems} = useContext(ShopContext);
 
+
   return (
     <div className='navbar'>
       <div className="nav-logo">
         <img src={logo} alt=""/>
-        <p>AILU SHOP</p>
+        <p>CODY SHOP</p>
       </div>
+      
       <u1 className="nav-menu">
         <li onClick={()=>{setMenu("shop")}}><Link to='/'>Shop</Link> {menu==="shop"?<hr/>:<></>}</li>
         <li onClick={()=>{setMenu("mens")}}><Link to='/mens'>Men</Link> {menu==="mens"?<hr/>:<></>}</li>

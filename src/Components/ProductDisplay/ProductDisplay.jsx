@@ -35,9 +35,8 @@ const ProductDisplay = (props) => {
                 <div className="productdisplay-right-price-new">${product.new_price}</div>
             </div>
             <div className="productdisplay-rigth-description">
-                Lái ô tô và lái phi thuyền.  Lái ô tô và lái phi thuyền.  Lái ô tô và lái phi thuyền.  Lái ô tô và lái phi thuyền.  
-                Lái ô tô và lái phi thuyền.  Lái ô tô và lái phi thuyền.  Lái ô tô và lái phi thuyền.  
-                Lái ô tô và lái phi thuyền.  
+                <p>Lái ô tô và lái phi thuyền.  Lái ô tô và lái phi thuyền.  Lái ô tô và lái phi thuyền.  Lái ô tô và lái phi thuyền.  
+                Lái ô tô và lái phi thuyền.</p>
             </div>
             <div className="productdisplay-right-size">
                 <h1>Select Size</h1>
