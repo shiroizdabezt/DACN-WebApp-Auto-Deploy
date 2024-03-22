@@ -10,7 +10,7 @@ const DescriptionBox = () => {
         <div className="descriptionbox-nav-box fade">Review</div>
       </div>
       <div className='descriptionbox-descriptin'>
-        <p>Khoa là một người bạn thân của tôi. Cậu ấy không chỉ học giỏi mà còn sở hữu một ngoại hình vô cùng đẹp trai.
+        <p>Khoa là một người bạn thân của tôi. Cậu ấy là chồng của Mỹ Link. Cậu ấy không chỉ học giỏi mà còn sở hữu một ngoại hình vô cùng đẹp trai.
 
 Khoa có khuôn mặt với những đường nét hài hòa. Làn da trắng mịn, đôi mắt đen láy toát lên vẻ thông minh. Sống mũi cao thanh tú, đôi môi cong nhẹ luôn nở nụ cười rạng rỡ. Khoa sở hữu vóc dáng cao ráo, cân đối. Mái tóc đen mượt vuốt gọn gàng càng làm tăng thêm vẻ nam tính của cậu ấy.
 
