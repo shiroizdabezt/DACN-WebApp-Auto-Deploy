@@ -4,7 +4,7 @@ npm create vite@latest .
 cd .. 
 cd .\backend\
 npm install express
-npm installjsonwebtoken
+npm install jsonwebtoken
 npm install mongoose
 npm install multer
 npm install cors
