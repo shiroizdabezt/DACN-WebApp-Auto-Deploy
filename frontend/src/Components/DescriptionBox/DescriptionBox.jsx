@@ -16,7 +16,7 @@ Khoa có khuôn mặt với những đường nét hài hòa. Làn da trắng m�
 
 Khoa không chỉ đẹp trai mà còn có cử chỉ, điệu bộ rất lịch thiệp. Cậu ấy luôn đi đứng nhẹ nhàng, nói chuyện nhỏ nhẹ và ân cần với mọi người. Nụ cười rạng rỡ của Khoa luôn khiến người đối diện cảm thấy mến mộ và tin tưởng.
 
-Đối với tôi, Khoa là một người bạn tuyệt vời và là một trong những người con trai đẹp trai nhất mà tôi từng gặp.</p>
+Đối với tôi, Khoa là một người bạn tuyệt vời và là một trong những người con trai đẹp trai nhất mà tôi từng gặp. Dume thèn khỏe</p>
         <p>Tôi là Nguyễn Đình Khoe lái dím</p>
       </div>
     </div>
