@@ -7,6 +7,8 @@ services:
         context: admin/
       ports: 
           - 8080:8080
+      volumes:
+          -   data_app:/var/lib/docker/volumes/data_app/_data
     backend:
       build:  
         dockerfile: Dockerfile
@@ -19,3 +21,5 @@ services:
         context: frontend/
       ports: 
           - 3000:3000
+volumes:
+  data_app:
