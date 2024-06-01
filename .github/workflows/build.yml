@@ -22,8 +22,8 @@ jobs:
             - name: Build and Push Docker Image Admin
               uses: docker/build-push-action@v2
               with: 
-                context: ./././admin
-                file: ./Dockerfile
+                context: ./
+                file: ././admin/Dockerfile
                 builder: ${{ steps.buildx.outputs.name}}
                 push: true
                 tags: ${{ secrets.DOCKERHUB_USERNAME}}/admin
