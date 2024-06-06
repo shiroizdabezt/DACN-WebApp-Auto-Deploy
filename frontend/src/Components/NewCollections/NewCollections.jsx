@@ -9,7 +9,7 @@ const NewCollections = () => {
   const [new_collection, setNew_collection] = useState([])
 
   useEffect(() => {
-    fetch('http://tuilalinh.id.vn:4000/newcollections')
+    fetch('https://tuilalinh.id.vn:4000/newcollections')
     .then((response) => response.json())
     .then((data) => setNew_collection(data));
   },[])
