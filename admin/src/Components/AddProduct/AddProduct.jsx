@@ -30,7 +30,7 @@ const AddProduct = () => {
         let formData = new FormData();
         formData.append('product', image);
 
-        await fetch('https://api.tuilalinh.id.vn:4000/upload', {
+        await fetch('https://api.tuilalinh.id.vn/upload', {
             method: 'POST',
             headers:{
                 Accept:'application/json',
@@ -42,7 +42,7 @@ const AddProduct = () => {
         {
             product.image = responseData.image_url;
             console.log(product);
-            await fetch('https://api.tuilalinh.id.vn:4000/addproduct',{
+            await fetch('https://api.tuilalinh.id.vn/addproduct',{
                 method: 'POST',
                 headers:{
                     Accept: 'application/json',

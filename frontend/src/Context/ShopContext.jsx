@@ -18,13 +18,13 @@ const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
 
     useEffect(() => {
-        fetch('https://api.tuilalinh.id.vn:4000/allproducts')
+        fetch('https://api.tuilalinh.id.vn/allproducts')
         .then((response) => response.json())
         .then((data) => setAll_Product(data))
 
         if(localStorage.getItem('auth-token'))
         {
-            fetch('https://api.tuilalinh.id.vn:4000/getcart',{
+            fetch('https://api.tuilalinh.id.vn/getcart',{
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
@@ -39,7 +39,7 @@ const ShopContextProvider = (props) => {
     const addToCart = (itemId) =>{
         setCartItems((prev) => ({...prev, [itemId]:prev[itemId]+1}))
         if(localStorage.getItem('auth-token')){
-            fetch('https://api.tuilalinh.id.vn:4000/addtocart', {
+            fetch('https://api.tuilalinh.id.vn/addtocart', {
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
@@ -57,7 +57,7 @@ const ShopContextProvider = (props) => {
         setCartItems((prev) => ({...prev, [itemId]:prev[itemId]-1}))
         if(localStorage.getItem('auth-token'))
         {
-            fetch('https://api.tuilalinh.id.vn:4000/removefromcart', {
+            fetch('https://api.tuilalinh.id.vn/removefromcart', {
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
