@@ -107,7 +107,7 @@ app.post('/addproduct',async (req, res) =>{
 
 //Creating API for delete
 app.post('/removeproduct', async(req, res) =>{
-    await Product.findOneAndDelete({id:req.body.id});
+    await Product.findOneAndDelete({id:req.body.id.toString()});
     console.log("Removed");
     res.json({
         success:true,
@@ -147,7 +147,7 @@ const Users = mongoose.model('Users',{
 //Creating Endpoint for registering the user
 app.post('/signup',async (req,res)=>{
 
-    let check = await Users.findOne({email:req.body.email});
+    let check = await Users.findOne({email:req.body.email.toString()});
     if(check){
         return res.status(400).json({success:false, errors:"existing user found with same email address"});
     }
@@ -176,7 +176,7 @@ app.post('/signup',async (req,res)=>{
 
 //Creating endpoint for user login 
 app.post('/login', async(req,res)=>{
-    let user = await Users.findOne({email:req.body.email});
+    let user = await Users.findOne({email:req.body.email.toString()});
     if(user){
         const passCompare = req.body.password === user.password;
         if(passCompare){
