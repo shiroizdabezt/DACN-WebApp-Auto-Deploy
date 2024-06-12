@@ -12,9 +12,9 @@ require('dotenv').config()
 app.use(express.json());
 app.use(cors());
 
-const url = process.env.MONGODB
+// const url = process.env.MONGODB
 //Database connection
-mongoose.connect(url)
+mongoose.connect("mongodb+srv://Shiroizdabezt:23012003Khoa@cluster0.k3kxftp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 //API creation
 
