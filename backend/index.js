@@ -12,6 +12,21 @@ require('dotenv').config()
 app.use(express.json());
 app.use(cors());
 
+var whitelist = [
+    'https://admin.tuilalinh.id.vn',
+    'https://tuilalinh.id.vn'
+]
+
+var corsOptions = {
+    origin: function (origin, callback) {
+      if (whitelist.indexOf(origin) !== -1) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    }
+  }
+
 // const url = process.env.MONGODB
 //Database connection
 mongoose.connect("mongodb+srv://Shiroizdabezt:23012003Khoa@cluster0.k3kxftp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
@@ -36,7 +51,7 @@ const upload = multer({storage:storage})
 
 // Creating upload endpoint for image
 app.use('/images',express.static('upload/images'))
-app.post("/upload",upload.single('product'),(req,res) =>{
+app.post("/upload", cors(corsOptions) ,upload.single('product'),(req,res) =>{
     res.json({
         success: 1,
         image_url:`https://api.tuilalinh.id.vn/images/${req.file.filename}`
@@ -79,7 +94,7 @@ const Product = mongoose.model("Product",{
     },
 })
 
-app.post('/addproduct',async (req, res) =>{
+app.post('/addproduct', cors(corsOptions) ,async (req, res) =>{
     let products = await Product.find({});
     let id;
     if(products.length > 0){
@@ -108,7 +123,7 @@ app.post('/addproduct',async (req, res) =>{
 })
 
 //Creating API for delete
-app.post('/removeproduct', async(req, res) =>{
+app.post('/removeproduct', cors(corsOptions), async(req, res) =>{
     await Product.findOneAndDelete({id:req.body.id.toString()});
     console.log("Removed");
     res.json({
@@ -147,7 +162,7 @@ const Users = mongoose.model('Users',{
 })
 
 //Creating Endpoint for registering the user
-app.post('/signup',async (req,res)=>{
+app.post('/signup', cors(corsOptions) ,async (req,res)=>{
 
     let check = await Users.findOne({email:req.body.email.toString()});
     if(check){
@@ -177,7 +192,7 @@ app.post('/signup',async (req,res)=>{
 })
 
 //Creating endpoint for user login 
-app.post('/login', async(req,res)=>{
+app.post('/login', cors(corsOptions), async(req,res)=>{
     let user = await Users.findOne({email:req.body.email.toString()});
     if(user){
         const passCompare = req.body.password === user.password;
@@ -243,7 +258,7 @@ const fetchUser = async (req,res,next) =>{
 }
 
 //Creating endpoint for adding products in cartdata
-app.post('/addtocart', fetchUser, async (req, res) => {
+app.post('/addtocart', cors(corsOptions), fetchUser, async (req, res) => {
     console.log("added", req.body.itemId);
     let userData = await Users.findOne({_id:req.user.id});
     userData.cartData[req.body.itemId] += 1;
@@ -252,7 +267,7 @@ app.post('/addtocart', fetchUser, async (req, res) => {
 })
 
 //Creating endpoint to remove product from cartdata
-app.post('/removefromcart', fetchUser, async (req, res) =>{
+app.post('/removefromcart',cors(corsOptions), fetchUser, async (req, res) =>{
     console.log("removed", req.body.itemId);
     let userData = await Users.findOne({_id:req.user.id});
     if(userData.cartData[req.body.itemId] > 0)
