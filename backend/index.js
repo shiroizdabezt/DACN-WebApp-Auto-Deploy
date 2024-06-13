@@ -161,7 +161,7 @@ const Users = mongoose.model('Users',{
 })
 
 //Creating Endpoint for registering the user
-app.post('/signup', cors(corsOptions) ,async (req,res)=>{
+app.post('/signup' ,async (req,res)=>{
 
     let check = await Users.findOne({email:req.body.email.toString()});
     if(check){
@@ -191,7 +191,7 @@ app.post('/signup', cors(corsOptions) ,async (req,res)=>{
 })
 
 //Creating endpoint for user login 
-app.post('/login', cors(corsOptions), async(req,res)=>{
+app.post('/login', async(req,res)=>{
     let user = await Users.findOne({email:req.body.email.toString()});
     if(user){
         const passCompare = req.body.password === user.password;
@@ -257,7 +257,7 @@ const fetchUser = async (req,res,next) =>{
 }
 
 //Creating endpoint for adding products in cartdata
-app.post('/addtocart', cors(corsOptions), fetchUser, async (req, res) => {
+app.post('/addtocart', fetchUser, async (req, res) => {
     console.log("added", req.body.itemId);
     let userData = await Users.findOne({_id:req.user.id});
     userData.cartData[req.body.itemId] += 1;
@@ -266,7 +266,7 @@ app.post('/addtocart', cors(corsOptions), fetchUser, async (req, res) => {
 })
 
 //Creating endpoint to remove product from cartdata
-app.post('/removefromcart',cors(corsOptions), fetchUser, async (req, res) =>{
+app.post('/removefromcart', fetchUser, async (req, res) =>{
     console.log("removed", req.body.itemId);
     let userData = await Users.findOne({_id:req.user.id});
     if(userData.cartData[req.body.itemId] > 0)
