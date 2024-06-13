@@ -7,7 +7,7 @@ const Popular = () => {
   const [popularProducts, setPopularProducts] = useState([]);
 
   useEffect(() =>{
-    fetch('http://tuilalinh.id.vn:4000/popularinwomen')
+    fetch('https://api.tuilalinh.id.vn/popularinwomen')
     .then((response) => response.json())
     .then((data) => setPopularProducts(data))
   },[])

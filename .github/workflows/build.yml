@@ -28,6 +28,9 @@ jobs:
                 push: true
                 tags: ${{ secrets.DOCKERHUB_USERNAME}}/admin
 
+            - name: Create ENV file
+              run: echo '${{ secrets.MONGODB }}' >> ".env"
+
             - name: Build and Push Docker Image Backend
               uses: docker/build-push-action@v2
               with: 
