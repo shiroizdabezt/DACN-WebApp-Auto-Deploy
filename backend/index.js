@@ -13,8 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 var whitelist = [
-    'https://admin.tuilalinh.id.vn',
-    'https://tuilalinh.id.vn'
+    'https://admin.tuilalinh.id.vn'
 ]
 
 var corsOptions = {
