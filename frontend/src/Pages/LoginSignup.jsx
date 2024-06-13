@@ -17,7 +17,7 @@ const LoginSignup = () => {
   const login = async () => {
     console.log("Login Function Excecuted", formData);
     let responseData;
-    await fetch('http://api.tuilalinh.id.vn:4000/login', {
+    await fetch('http://api.tuilalinh.id.vn/login', {
       method:'POST',
       headers:{
         Accept:'application/form-data',
@@ -38,7 +38,7 @@ const LoginSignup = () => {
   const sign_up = async () => {
     console.log("Sign Up Function Excecuted", formData);
     let responseData;
-    await fetch('http://api.tuilalinh.id.vn:4000/signup', {
+    await fetch('http://api.tuilalinh.id.vn/signup', {
       method:'POST',
       headers:{
         Accept:'application/form-data',
