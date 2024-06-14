@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import './NewCollections.css'
 import Item from '../Item/Item'
 
-
+const api = import.meta.env.API
 
 const NewCollections = () => {
 
   const [new_collection, setNew_collection] = useState([])
 
   useEffect(() => {
-    fetch('https://api.tuilalinh.id.vn/newcollections')
+    fetch(`${api}/newcollections`)
     .then((response) => response.json())
     .then((data) => setNew_collection(data));
   },[])

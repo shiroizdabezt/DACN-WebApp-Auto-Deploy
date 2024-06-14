@@ -26,9 +26,11 @@ var corsOptions = {
     }
   }
 
-// const url = process.env.MONGODB
+const url = process.env.MONGODB
 //Database connection
-mongoose.connect("mongodb+srv://Shiroizdabezt:23012003Khoa@cluster0.k3kxftp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect(url.toString)
+
+
 
 //API creation
 

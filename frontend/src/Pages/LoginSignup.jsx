@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './CSS/LoginSignup.css'
 
+const api = import.meta.env.API
+
 const LoginSignup = () => {
 
   const[state,setSate] = useState("Login");
@@ -17,7 +19,7 @@ const LoginSignup = () => {
   const login = async () => {
     console.log("Login Function Excecuted", formData);
     let responseData;
-    await fetch('https://api.tuilalinh.id.vn/login', {
+    await fetch(`${api}/login`, {
       method:'POST',
       headers:{
         Accept:'application/form-data',
@@ -38,7 +40,7 @@ const LoginSignup = () => {
   const sign_up = async () => {
     console.log("Sign Up Function Excecuted", formData);
     let responseData;
-    await fetch('https://api.tuilalinh.id.vn/signup', {
+    await fetch(`${api}/signup`, {
       method:'POST',
       headers:{
         Accept:'application/form-data',
