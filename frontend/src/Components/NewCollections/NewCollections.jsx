@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './NewCollections.css'
 import Item from '../Item/Item'
 
-const api = import.meta.env.API
+const api = process.env.API
 
 const NewCollections = () => {
 

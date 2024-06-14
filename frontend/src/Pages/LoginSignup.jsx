@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './CSS/LoginSignup.css'
 
-const api = import.meta.env.API
+const api = process.env.API
 
 const LoginSignup = () => {
 

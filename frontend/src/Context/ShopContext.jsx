@@ -9,7 +9,8 @@ const getDefaultCart = () => {
     return cart;
 }
 
-const api = import.meta.env.API
+const api = process.env.API
+
 
 const ShopContextProvider = (props) => {
 
