@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './AddProduct.css'
 import upload_area from '../../assets/upload_area.svg'
 
-const api = import.meta.env.API
+const api = import.meta.env.VITE_API
 
 const AddProduct = () => {
     

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import './ListProduct.css'
 import cross_icon from '../../assets/cross_icon.png'
 
-const api = import.meta.env.API
+const api = import.meta.env.VITE_API
 
 const ListProduct = () => {
 
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = async () =>{
-    await fetch('https://api.tuilalinh.id.vn/allproducts')
+    await fetch(`${api}/allproducts`)
     .then((res)=>res.json())
     .then((data)=>{setAllProducts(data)});
   }

@@ -3,7 +3,7 @@ import './Popular.css'
 import Item from '../Item/Item'
 
 
-const api = process.env.API
+const api = process.env.REACT_APP_API
 
 const Popular = () => {
 

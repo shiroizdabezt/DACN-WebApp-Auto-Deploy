@@ -9,7 +9,7 @@ const getDefaultCart = () => {
     return cart;
 }
 
-const api = process.env.API
+const api = process.env.REACT_APP_API
 
 
 const ShopContextProvider = (props) => {
