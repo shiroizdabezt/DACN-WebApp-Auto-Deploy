@@ -28,7 +28,7 @@ var corsOptions = {
 
 const url = process.env.MONGODB
 //Database connection
-mongoose.connect(url.toString)
+mongoose.connect(url)
 
 
 
