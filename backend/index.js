@@ -11,8 +11,9 @@ require('dotenv').config()
 
 
 app.use(cors({
-    origin: 'http://admin.tuilalinh.id.vn:8080/',
-    origin: 'http://tuilalinh.id.vn:3000/'
+    origin: ['http://tuilalinh.id.vn:3000', 'http://admin.tuilalinh.id.vn:8080'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(express.json());
 
