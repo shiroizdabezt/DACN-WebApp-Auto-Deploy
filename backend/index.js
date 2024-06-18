@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 var whitelist = [
-    'http://admin.tuilalinh.id.vn'
+    'http://admin.tuilalinh.id.vn:8080/addproduct'
 ]
 
 var corsOptions = {
@@ -95,7 +95,7 @@ const Product = mongoose.model("Product",{
     },
 })
 
-app.post('/addproduct',async (req, res) =>{
+app.post('/addproduct', cors(corsOptions),async (req, res) =>{
     let products = await Product.find({});
     let id;
     if(products.length > 0){
