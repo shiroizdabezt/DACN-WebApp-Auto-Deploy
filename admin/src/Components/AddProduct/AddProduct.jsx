@@ -36,12 +36,16 @@ const AddProduct = () => {
             method: 'POST',
             headers:{
                 Accept:'application/json',
+                
             },
             body:formData,
         }).then((resp) => resp.json()).then((data)=>{responseData=data})
 
+
+
         if(responseData.success)
         {
+            console.log("thanh cong roi");
             product.image = responseData.image_url;
             console.log(product);
             await fetch(`${api}/addproduct`,{

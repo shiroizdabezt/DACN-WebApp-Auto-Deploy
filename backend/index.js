@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 var whitelist = [
-    'https://admin.tuilalinh.id.vn'
+    'http://admin.tuilalinh.id.vn'
 ]
 
 var corsOptions = {
@@ -52,10 +52,10 @@ const upload = multer({storage:storage})
 
 // Creating upload endpoint for image
 app.use('/images',express.static('upload/images'))
-app.post("/upload", cors(corsOptions) ,upload.single('product'),(req,res) =>{
+app.post("/upload" ,upload.single('product'),(req,res) =>{
     res.json({
         success: 1,
-        image_url:`https://api.tuilalinh.id.vn/images/${req.file.filename}`
+        image_url:`http://api.tuilalinh.id.vn:4000/images/${req.file.filename}`
     })
 })
 
@@ -95,7 +95,7 @@ const Product = mongoose.model("Product",{
     },
 })
 
-app.post('/addproduct', cors(corsOptions) ,async (req, res) =>{
+app.post('/addproduct',async (req, res) =>{
     let products = await Product.find({});
     let id;
     if(products.length > 0){
@@ -124,7 +124,7 @@ app.post('/addproduct', cors(corsOptions) ,async (req, res) =>{
 })
 
 //Creating API for delete
-app.post('/removeproduct', cors(corsOptions), async(req, res) =>{
+app.post('/removeproduct', async(req, res) =>{
     await Product.findOneAndDelete({id:req.body.id.toString()});
     console.log("Removed");
     res.json({
@@ -163,7 +163,7 @@ const Users = mongoose.model('Users',{
 })
 
 //Creating Endpoint for registering the user
-app.post('/signup' ,async (req,res)=>{
+app.post('/signup',async (req,res)=>{
 
     let check = await Users.findOne({email:req.body.email.toString()});
     if(check){
