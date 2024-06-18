@@ -41,8 +41,6 @@ const AddProduct = () => {
             body:formData,
         }).then((resp) => resp.json()).then((data)=>{responseData=data})
 
-
-
         if(responseData.success)
         {
             console.log("thanh cong roi");
