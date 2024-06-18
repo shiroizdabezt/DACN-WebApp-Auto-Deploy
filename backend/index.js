@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 var whitelist = [
-    'http://admin.tuilalinh.id.vn:8080/addproduct'
+    'http://admin.tuilalinh.id.vn:8080/'
 ]
 
 var corsOptions = {
