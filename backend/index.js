@@ -9,8 +9,12 @@ const cors = require("cors");
 const { error } = require("console");
 require('dotenv').config()
 
+
+app.use(cors({
+    origin: 'http://admin.tuilalinh.id.vn:8080/'
+}));
 app.use(express.json());
-app.use(cors());
+
 
 var whitelist = [
     'http://admin.tuilalinh.id.vn:8080/'
@@ -96,7 +100,7 @@ const Product = mongoose.model("Product",{
     },
 })
 
-app.post('/addproduct', cors(corsOptions),async (req, res) =>{
+app.post('/addproduct' ,async (req, res) =>{
     let products = await Product.find({});
     let id;
     if(products.length > 0){
