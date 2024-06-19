@@ -10,26 +10,19 @@ const { error } = require("console");
 require('dotenv').config()
 
 
+app.use(function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET', 'POST', 'PUT', 'DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+})
+
 app.use(cors({
     origin: ['http://tuilalinh.id.vn:3000', 'http://admin.tuilalinh.id.vn:8080', "*"],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 app.use(express.json());
 
-
-var whitelist = [
-    'http://admin.tuilalinh.id.vn:8080/'
-]
-
-var corsOptions = {
-    origin: function (origin, callback) {
-      if (whitelist.indexOf(origin) !== -1) {
-        callback(null, true)
-      } else {
-        callback(new Error('Not allowed by CORS'))
-      }
-    }
-  }
 
 const url = process.env.MONGODB
 //Database connection
