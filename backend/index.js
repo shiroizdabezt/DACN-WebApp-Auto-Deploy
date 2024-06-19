@@ -33,7 +33,7 @@ mongoose.connect(url)
 //API creation
 
 app.get("/",(req, res) => {
-    res.send("Express App is Running_2")
+    res.send("Express App is Running")
 })
 
 //Image Storage Engine
