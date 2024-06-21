@@ -1,7 +1,16 @@
 name: build_image
 on: 
-    push:
-        branches: [ main ]
+  workflow_dispatch:
+    inputs: 
+        ecs_or_ec2:
+          type: choice
+          description: select ecs or ec2 
+          options:
+          - ecs
+          - ec2
+          required: true
+  push:
+      branches: [ main ]
 jobs:
     docker:
         runs-on: ubuntu-latest
@@ -53,10 +62,21 @@ jobs:
               run: echo ${{ steps.docker_build.outputs.digest }}
             
             - name: Deploy to EC2
+              if: ${{ github.event.inputs.ecs_or_ec2 == 'ec2'}}
               uses: convictional/trigger-workflow-and-wait@v1.3.0
               with:
                 owner: shiroizdabezt
                 repo: DACN_Terraform
                 github_token: ${{ secrets.ACCESS_TOKEN }}
+                workflow_file_name: terraform.yml
+                ref: main
+
+            - name: Deploy to ECS
+              if: ${{ github.event.inputs.ecs_or_ec2 == 'ecs'}}
+              uses: convictional/trigger-workflow-and-wait@v1.3.0
+              with:
+                owner: pokilee10
+                repo: DACN_Terraform
+                github_token: ${{ secrets.ACCESS_TOKEN_POKILEE10 }}
                 workflow_file_name: terraform.yml
                 ref: main
