@@ -2,8 +2,8 @@
 
 FROM node:18-alpine
 WORKDIR /app
-COPY ./backend/package.json .
+COPY . .
 RUN npm install
-COPY ./backend .
+
 CMD ["node", "index.js"]
 EXPOSE 4000

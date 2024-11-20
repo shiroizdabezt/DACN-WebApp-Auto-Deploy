@@ -17,9 +17,9 @@ spec:
       containers:
       - name: frontend
         imagePullPolicy: Always
-        image: shiroizdabezt/frontend:latest
+        image: shiroizdabezt/frontend:v2
         ports:
-        - containerPort: 3000
+        - containerPort: 80
 
 ---
 apiVersion: v1
